@@ -1,0 +1,25 @@
+---
+---
+{% comment %}counts how many items there will be so it can create well-formed JSON {% endcomment %}
+{% assign index = site.data.songs | where: "done","Y" | size %}
+{
+{% for song in site.data.songs %}
+{% if song.done == 'Y' %}
+ "{{song.song_path}}" : {
+  "book_title" : "{{song.book_title}}",
+  "editor" : "{{song.editor}}",
+  "year" : "{{song.year}}",
+  "song_no" : "{{song.song_no}}",
+  "song_title" : "{{song.song_title}}",
+  "no_parts" : "{{song.no_parts}}",
+  "voices" : "{{song.voices}}",
+  "text" : "{{song.text | remove:'-'}}",
+  "languages" : "{{song.languages}}",
+  "tags" : "{{song.tags}}",
+  "book_path" : "{{song.book_path}}",
+  "song_path" : "{{song.song_path}}",
+  "done" : "{{song.done}}"
+ }{% unless forloop.index == index %},{% endunless %}
+{% endif %}
+{% endfor %}
+}

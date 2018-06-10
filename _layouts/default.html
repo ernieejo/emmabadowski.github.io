@@ -1,0 +1,32 @@
+
+<body>
+<header>
+ <h1 class="ui header">{{site.title}}</h1>
+</header>
+
+<main>
+ {{content}}
+</main>
+<footer class="ui center aligned container">
+ <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+  <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+ </a><br />
+ Transcriptions by Emma Badowski. Website by Matthew Barry.<br />
+ All musical arrangements are licensed under a
+ <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+  Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
+ </a>.<br />
+
+</footer>
+</body>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<script src="https://unpkg.com/lunr/lunr.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/url-search-params/0.10.0/url-search-params.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.js"></script>
+<script src="/js/search.js"></script>
+
+<!-- provides data for the JS application -->
+<script> window.store = {{site.data.fields | jsonify }}; </script>

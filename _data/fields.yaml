@@ -1,0 +1,41 @@
+
+- value: book_title
+  label: Book Title
+  type: text
+
+- value: editor
+  label: Editor
+  type: text
+
+- value: year
+  label: Year
+  type: num
+
+- value: song_no
+  label: "Song #"
+  type: num
+
+- value: song_title
+  label: Song Title
+  type: text
+
+- value: no_parts
+  label: "# of Parts"
+  type: num
+
+- value: voices
+  label: Voices
+  type: sym
+
+- value: text
+  label: Text
+  type: sym
+
+- value: languages
+  label: Languages
+  type: text
+
+- value: tags
+  label: Tags
+  type: text
+

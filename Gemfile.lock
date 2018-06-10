@@ -250,7 +250,6 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
-  jekyll (~> 3.7.3)
   jekyll-babel
   minima (~> 2.0)
   tzinfo-data

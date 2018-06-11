@@ -21,10 +21,8 @@ global.data.then(function(loaded_data){
         this.ref('path');
         const here = this;
         for (let i in window.store){
-            //only index text fields
-            if (window.store[i]['type'] === 'text') {
-                here.field(window.store[i]['value']);
-            }
+            //index all fields, so that a search for all fields will still make an attempt to match;
+            here.field(window.store[i]['value']);
         }
         $.each(loaded_data, function(index, value){
          here.add($.extend({"path":index},value));
@@ -41,20 +39,18 @@ global.data.then(function(loaded_data){
     generate_param_labels(params, uniqueFields);
 
     let allResults = []; //array for holding every result from all queries
-    let incResults = []; //array for holding results that should be displayed;
     //search logic:
      // - for each unique param entry, perform a search
     uniqueFields.forEach(function(field){
-        const prefix = (field === 'q') ? ' ' : ' '+field+':';
-        const query = prefix+params.getAll(field).join(prefix);
         //CHANGE THIS replace with a function to use string matching, number matching, or index searching based on field type
         //return a list of all search results.
-        const results = execute_query(global.idx, field, query);
+        const results = execute_query(global.idx, field, params, loaded_data);
         results.forEach(function(result){
             allResults.push(result);
         });
     });
 
+    let incResults = []; //array for holding results that should be displayed;
     // if there are params
     if (uniqueFields.size){
         // - create set of only results that appear in all searches
@@ -134,18 +130,47 @@ function generate_param_labels(params, uniqueFields){
         </div>
         `);
     });
+    //button for removing all params at once
+    if (uniqueFields.size){
+        $param_labels.append(`<a href='/'>Clear all</a>`);
+    }
 }
 
-function execute_query(index, field, query){
+function execute_query(index, field, params, data){
     //needs to return an array of search result song_paths.
-    const f = window.store.find(item => item.value === field);
-    if (f.type === 'text'){ //perform idx search
-        const res = index.search(query).pluck('ref');
-        console.log(res);
+    const f = (field === 'q') ? {'type':'all'} : window.store.find(item => item.value === field);
+    if (f.type === 'text' || f.type === 'all'){ //perform idx search
+        const prefix = (f.type === 'all') ? ' ' : ' '+field+':';
+        const query = prefix+params.getAll(field).join(prefix);
+        return index.search(query).map(a => a.ref); //return array of matching results
     } else if (f.type === 'num') { //perform number range search
-
+        const entries = Object.entries(data).map(i => ([i[0], i[1][field]]));
+        let res = [];
+        params.getAll(field).forEach(function(n){
+            //if n starts with >
+            if (n.startsWith('>=')){
+                res.push (...entries.filter(i => i[1] >= n.slice(1)).map(a => a[0]));
+            } else if (n.startsWith('<=')) {
+                res.push (...entries.filter(i => i[1] <= n.slice(1)).map(a => a[0]));
+            } else if (n.startsWith('>')) {
+                res.push (...entries.filter(i => i[1] > n.slice(1)).map(a => a[0]));
+            } else if (n.startsWith('<')) {
+                res.push (...entries.filter(i => i[1] < n.slice(1)).map(a => a[0]));
+            } else if (n.includes('-')) {
+                const [n1, n2] = n.split('-');
+                res.push (...entries.filter(i => (i[1] >= n1 && i[1] <= n2)).map(a => a[0]));
+            } else {
+                res.push (...entries.filter(i => i[1] === n).map(a => a[0]));
+            }
+        });
+        return res;
     } else if (f.type === 'sym') { //perform direct string comparisons
-
+        const entries = Object.entries(data).map(i => ([i[0], i[1][field]]));
+        let res = [];
+        params.getAll(field).forEach(function(s){
+            res.push (...entries.filter(i => i[1].includes(s)).map(a => a[0]));
+        });
+        return res;
     }
 
 }

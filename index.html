@@ -28,13 +28,27 @@ layout: default
         Search tips
     </div>
     <div class="content">
-        <p class="transition hidden">
-        <strong>wildcard searches:</strong> Add * to the beginning or end of a string to get results that start or end with the given letters. <br />
-        Use wildcards in the middle of a string to replace unknown letters. <br />
-        <strong>fuzzy searches:</strong> Add ~<em>n</em> to the end of a string to match similar items. <br />
-         The larger the <em>n</em> the wider the range of results. <br />
-        <strong>OR searches:</strong> To perform an OR search, simply separate two terms in the same field by a space.
-        </p>
+        <ul class="transition hidden">
+        <li><strong>OR searches:</strong> To perform an OR search, simply separate two terms in the same field by a space. </li>
+        <li><strong>Text Searches:</strong> When searching text fields, you can use the following features:
+            <ul>
+            <li><strong>wildcard searches:</strong> Add * to the beginning or end of a string to get results that start or end with the given letters. <br />
+                Use wildcards in the middle of a string to replace unknown letters. </li>
+            <li><strong>fuzzy searches:</strong> Add ~<em>n</em> to the end of a string to match similar items. <br />
+                The larger the <em>n</em> the wider the range of results. </li>
+            </ul>
+        </li>
+        <li><strong>Numeric searches:</strong> When searching numbers, you can use a number of operators to search ranges more easily, such as:
+        <ul>
+            <li><strong>&gt;<em>n</em>:</strong> Returns all values greater than <em>n</em>.</li>
+            <li><strong>&gt;=<em>n</em>:</strong> Returns all values greater than or equal to <em>n</em>.</li>
+            <li><strong>&lt;<em>n</em>:</strong> Returns all values less than <em>n</em>.</li>
+            <li><strong>&lt;=<em>n</em>:</strong> Returns all values less than or equal to <em>n</em>.</li>
+            <li><strong><em>n1</em>-<em>n2</em>:</strong> Returns <em>n1</em>, <em>n2</em>, and all values in-between.</li>
+            <li><strong><em>n1 n2</em>:</strong> Putting a space between two or more numbers will perform an OR search on all numbers. <br /> This can be combined with the other operators as well! </li>
+        </ul>
+        </li>
+        </ul>
     </div>
 </div>
 <br />

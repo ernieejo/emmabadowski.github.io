@@ -59,10 +59,11 @@ global.data.then(function(loaded_data){
             obj[b] = ++ obj[b] || 1;
             return obj;
         }, {});
+
         // - compare returned counts against number of query params; only return results that appear as many times as there are params
         for (const key in resultFrequency){
             if (!resultFrequency.hasOwnProperty(key)){continue;}
-            if (resultFrequency[key] === uniqueFields.size){
+            if (resultFrequency[key] >= uniqueFields.size){
                 incResults.push(key);
             }
         }
@@ -83,12 +84,26 @@ $("#search_form").submit(function(event){
     event.preventDefault();
     let params = new URLSearchParams(window.location.search); //call up existing search params
     const field = $("#search_field").val();  //value of search_field
+    const type = $("#search_type").val();
     //TO DO --- Add some validation and/or auto-trimming here.
-    const queries = $("#search_text").val().replace(' OR ',' ').split(' '); // value of search_text, split into separate terms by spaces
+    const queries = $("#search_text").val().trim().replace(', ',' ').replace(' OR ',' ').replace(' AND ',' ').split(' '); // value of search_text, split into separate terms by spaces
     for (const query of queries){
-        params.append(field,query); //build query param based on search field value
+        if (type === 'or'){
+            params.append(field,query); //build query param based on search field value
+        } else if (type === 'and'){
+            params.append(field,'+'+query);
+        } else if (type === 'not'){
+            params.append(field,'-'+query);
+        }
     }
     window.location.search = params; //pass param to URL, triggering page reload.
+});
+
+//disable OR/AND/NOT field for numbers, because it doesn't make sense.
+$("#search_field").on("change", function(){
+    const field = $("#search_field").val();
+    const type = (window.store.find(item => item.value === field)) ? window.store.find(item => item.value === field).type : '';
+    $("#search_type").prop('disabled', (type === 'num'  || type === 'sym'));
 });
 
 function display_search_results(results, loaded_data) {
@@ -121,7 +136,21 @@ function generate_param_labels(params, uniqueFields){
     uniqueFields.forEach(function(field){
         const f = window.store.find(item => item.value === field);
         const prefix = (f) ? f.label+':' : 'All Fields:';
-        const query = params.getAll(field).join(' OR ');
+        let query = [];
+        if (f && f.type === 'num') {
+            query = params.getAll(field);
+        } else {
+            for (const i of params.getAll(field)){
+                if (i.startsWith('+')){
+                    query.push('AND '+i.slice(1));
+                } else if (i.startsWith('-')){
+                    query.push('NOT '+i.slice(1));
+                } else {
+                    query.push(i);
+                }
+            }
+        }
+        query = query.join(', ');
         //syntax based on SemanticUI labels
         $param_labels.append(`
         <div class="ui large blue label">${prefix}
@@ -140,8 +169,18 @@ function execute_query(index, field, params, data){
     //needs to return an array of search result song_paths.
     const f = (field === 'q') ? {'type':'all'} : window.store.find(item => item.value === field);
     if (f.type === 'text' || f.type === 'all'){ //perform idx search
-        const prefix = (f.type === 'all') ? ' ' : ' '+field+':';
-        const query = prefix+params.getAll(field).join(prefix);
+        const prefix = (f.type === 'all') ? '' : field+':';
+        let query = [];
+        for (const i of params.getAll(field)){
+            if (i.startsWith('+')){
+                query.push('+'+prefix+i.slice(1));
+            } else if (i.startsWith('-')){
+                query.push('-'+prefix+i.slice(1));
+            } else {
+                query.push(prefix+i);
+            }
+        }
+        query = query.join(' ');
         return index.search(query).map(a => a.ref); //return array of matching results
     } else if (f.type === 'num') { //perform number range search
         const entries = Object.entries(data).map(i => ([i[0], i[1][field]]));
@@ -168,7 +207,7 @@ function execute_query(index, field, params, data){
         const entries = Object.entries(data).map(i => ([i[0], i[1][field]]));
         let res = [];
         params.getAll(field).forEach(function(s){
-            res.push (...entries.filter(i => i[1].includes(s)).map(a => a[0]));
+           res.push(...entries.filter(i=>i[1].includes(s)).map(a => a[0]));
         });
         return res;
     }
@@ -199,3 +238,10 @@ function get_pdf_link(field, data, filemap){
     }
 }
 
+function escapeText(s){
+    return s.replace(/[\"&'\/]/g,function(a){
+        return {
+            ':': '&quot;', '&' : '&amp;', "'" : '&#39;', '/' : '&#47;'
+        }[a];
+    });
+}

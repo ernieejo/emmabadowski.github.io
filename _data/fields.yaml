@@ -13,7 +13,7 @@
 
 - value: song_no
   label: "Song #"
-  type: num
+  type: sym
 
 - value: song_title
   label: Song Title

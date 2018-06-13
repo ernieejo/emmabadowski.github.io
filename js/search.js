@@ -6,6 +6,8 @@ $('.ui.accordion')
     .accordion()
 ;
 
+$('table').tablesort();
+
 //place for storing global data
 const global = {};
 

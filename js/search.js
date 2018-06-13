@@ -124,7 +124,8 @@ function display_search_results(results, loaded_data) {
             // Build a snippet of HTML for this result
             for (let i in window.store){
                 const key = window.store[i]['value'];
-                row += `<td>${item[key]}${get_pdf_link(key, item, global.filemap)}</td>`;
+                const label = window.store[i]['label'];
+                row += `<td><span class="mobile only"><strong>${label}: </strong></span>${item[key]}${get_pdf_link(key, item, global.filemap)}</td>`;
             }
             row += '</tr>';
             // Add the row to the collection of results.

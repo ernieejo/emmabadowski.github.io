@@ -19,6 +19,7 @@ header {
      justify-content: center;
      align-items: center;
     height: 200px;
+    min-height: 50px;
 }
 footer {
     min-width: 100%;

@@ -1,6 +1,54 @@
-book_title,editor,year,book_path,song_no,song_title,no_parts,voices,text,languages,tags,song_path,done
-Pavans Galliards Almains,Holborne,1599,pga,1,Bona Speranza,5,aatsb,a-t--,"English, Latin","Popular, Exciting",bonasperanza,Y
-Pavans Galliards Almains,Holborne,1599,pga,2,Tears of the Muses,5,aatsb,aa---,English,Exciting,tearsofthemuses,Y
-Lachrimae,Dowland,1605,lach,1,Lachrimae Antiquae,5,atssb,a----,Latin,,lachrimaeantiquae,Y
-Lachrimae,Dowland,1605,lach,2,Lachrimae Antiquae Novae,5,atssb,at--b ,Latin,,lachrimaeantiquaenovae,Y
-First Book of Songs,Dowland,1597,fbs,1,Unquiet Thoughts,4,assb,----,,Bees?,unquietthoughts,N
+book_title,year,editor,song_no,song_title,book_path,song_path,no_parts,voices,text,languages,complete,lyrics,ficta_check,tags,done,notes,time_sig,key_sig
+The Third and Fourth Book of Ayres,1617,Thomas Campion,3-1,Oft have I sigh'd,campion_ayres3-4,1_oft_have_i_sighd,2,SBC,S-,English,SBC,Y,N,,,,"IT,mP/IT,mP",1F/2F
+The Third and Fourth Book of Ayres,1617,Thomas Campion,3-2,Now let her change,campion_ayres3-4,2_now_let_her_change,2,SBC,S-,English,SB,Y,N,,,,"IT,mP,cut/IT,mP,cut",2F/2F
+The Third and Fourth Book of Ayres,1617,Thomas Campion,3-3,Were my heart as,campion_ayres3-4,3_were_my_heart_as,2,SBC,S-,English,SB,Y,N,,,,"IT,mP,cut/IT,mP,cut",2F/2F
+The Third and Fourth Book of Ayres,1617,Thomas Campion,3-4,Maids are simple some men say,campion_ayres3-4,4_maids_are_simple,2,SBC,S-,English,SB,Y,N,,,,"IT,mP,cut/IT,mP,cut",1F/2F
+The Third and Fourth Book of Ayres,1617,Thomas Campion,3-5,So tyr'd are all my thoughts,campion_ayres3-4,5_so_tyrd,2,SBC,S-,English,SB,Y,N,,,,"IT,mP,cut/IT,mP,cut",1F/1F
+The Third and Fourth Book of Ayres,1617,Thomas Campion,3-6,Why presumes thy pride,campion_ayres3-4,6_why_presumes,2,SBC,S-,English,SB,Y,N,,,,"IT,mP/IT,mP",1F/2F
+The Third and Fourth Book of Ayres,1617,Thomas Campion,3-7,Kind are her answeres,campion_ayres3-4,7_kinde_are,2,SBC,S-,English,SBC,Y,N,,,,"IT,mP/IT,mP",0/2F
+The Third and Fourth Book of Ayres,1617,Thomas Campion,3-8,"O griefe, o spight",campion_ayres3-4,8_o_griefe,2,SBC,S-,English,SB,Y,N,,,,"IT,mP/IT,mP, cut",1F/2F
+The Third and Fourth Book of Ayres,1617,Thomas Campion,3-9,O never to be mov'd,campion_ayres3-4,9_o_never,2,SBC,S-,English,SB,Y,N,hemiola,,,"IT,mP,cut/IT,mP,cut",1F/2F
+The Third and Fourth Book of Ayres,1617,Thomas Campion,3-10,Breake now my heart and dye,campion_ayres3-4,10_breake_now,2,SBC,S-,English,SB,Y,N,"hemiola, SC",,,"IT,mP,cut/IT,mP,cut",1F/2F
+The Third and Fourth Book of Ayres,1617,Thomas Campion,3-11,If Love loves truth,campion_ayres3-4,11_if_love_loves_truth,2,SBC,S-,English,SB,Y,N,,,,"IT,mP,cut/IT,mP,cut",0/0
+The Third and Fourth Book of Ayres,1617,Thomas Campion,3-12,Now winter nights enlarge,campion_ayres3-4,12_now_winter,2,SBC,S-,English,SB,Y,N,,,,"IT,mP/IT,mP",0/0
+The Third and Fourth Book of Ayres,1617,Thomas Campion,3-13,Awake thou spring,campion_ayres3-4,13_awake_thou,2,SBC,S-,English,SB,Y,N,,,,"IT,mP,cut/IT,mP,cut",3F/3F
+The Third and Fourth Book of Ayres,1617,Thomas Campion,3-14,What is it all that men possesse?,campion_ayres3-4,14_what_is_it,2,SBC,S-,English,SB,Y,N,,,,"IT,mP/IT,mP",0/0
+The Third and Fourth Book of Ayres,1617,Thomas Campion,3-15,Fire that must flame,campion_ayres3-4,15_fire_that,2,SBC,S-,English,SB,Y,N,hemiola,,,"IT,mP,cut/IT,mP,cut",0/0
+The Third and Fourth Book of Ayres,1617,Thomas Campion,3-16,If thou long'st so much,campion_ayres3-4,16_if_thou_longst,2,SBC,S-,English,SB,Y,N,,,,"IT,mP,cut/IT,mP",2F/2F
+The Third and Fourth Book of Ayres,1617,Thomas Campion,3-17,Shall I come sweet love?,campion_ayres3-4,17_shall_i_come,2,SBC,S-,English,SB,Y,N,SC,,,"IT,mP/IT,mP",3F/3F
+The Third and Fourth Book of Ayres,1617,Thomas Campion,3-18,Thrice tosse these Oaken,campion_ayres3-4,18_thrice_tosse,2,SBC,S-,English,SB,Y,N,,,,"IT,mP/IT,mP",1F/0
+The Third and Fourth Book of Ayres,1617,Thomas Campion,3-19,Be thou then my beauty,campion_ayres3-4,19_be_thou,2,SBC,S-,English,SBC,Y,Y,,Y,,"IT,mP/IT,mP",1F/2F
+The Third and Fourth Book of Ayres,1617,Thomas Campion,3-20,"Fire, fire, fire, fire, loe here",campion_ayres3-4,20_fire_fire,2,SBC,S-,English,SB,Y,N,"hemiola, ties",,,"IT,mP/IT,mP, cut",0/0
+The Third and Fourth Book of Ayres,1617,Thomas Campion,3-21,O sweet delight,campion_ayres3-4,21_o_sweet,2,SBC,S-,English,SB,Y,N,,,,"IT,mP/IT,mP, cut",3F/3F
+The Third and Fourth Book of Ayres,1617,Thomas Campion,3-22,Thus I resolve,campion_ayres3-4,22_thus_i_resolve,2,SBC,S-,English,SB,Y,N,,,,"IT,mP/IT,mP, cut",2F/2F
+The Third and Fourth Book of Ayres,1617,Thomas Campion,3-23,"Come, & come my lifes",campion_ayres3-4,23_come_come,2,SBC,S-,English,SB,Y,N,hemiola,,,"IT,mP,cut/IT,mP",1F/2F
+The Third and Fourth Book of Ayres,1617,Thomas Campion,3-24,Could my heart more,campion_ayres3-4,24_could_my_heart,2,SBC,S-,English,SB,Y,N,,,,"IT,mP/IT,mP, cut",1F/1F
+The Third and Fourth Book of Ayres,1617,Thomas Campion,3-25,Sleepe angry beautie,campion_ayres3-4,25_sleepe_angry,2,SBC,S-,English,SB,Y,N,,,,"IT,mP,cut/IT,mP",2F/2F
+The Third and Fourth Book of Ayres,1617,Thomas Campion,3-26,Silly boy 'tis full Moone yet,campion_ayres3-4,26_silly_boy,2,SBC,S-,English,SB,Y,N,"hemiola, ties",,,"IT,mP/IT,mP",0/0
+The Third and Fourth Book of Ayres,1617,Thomas Campion,3-27,Never love unlesse you can,campion_ayres3-4,27_never_love,2,SBC,S-,English,SB,Y,N,,,,"IT,mP,cut/IT,mP",2F/2F
+The Third and Fourth Book of Ayres,1617,Thomas Campion,3-28,"So quicke, so hot",campion_ayres3-4,28_so_quicke,2,SBC,S-,English,SB,Y,N,hemiola,,,"3/IT,mP",0/0
+The Third and Fourth Book of Ayres,1617,Thomas Campion,3-29,Shall I then hope,campion_ayres3-4,29_shall_i_then,2,SBC,S-,English,SB,Y,N,ties,,,"IT,mP/IT,mP",0/0
+The Third and Fourth Book of Ayres,1617,Thomas Campion,4-1,Leave prolonging,campion_ayres3-4,,2,SBC,S-,English,,,N,,,,,
+The Third and Fourth Book of Ayres,1617,Thomas Campion,4-2,Respect my faith,campion_ayres3-4,,2,SBC,S-,English,,,N,,,,,
+The Third and Fourth Book of Ayres,1617,Thomas Campion,4-3,Thou ioy'st fond boy,campion_ayres3-4,,2,SBC,S-,English,,,N,,,,,
+The Third and Fourth Book of Ayres,1617,Thomas Campion,4-4,Vayte love mine eyes,campion_ayres3-4,,2,SBC,S-,English,,,N,,,,,
+The Third and Fourth Book of Ayres,1617,Thomas Campion,4-5,Every Dame affects good fame,campion_ayres3-4,,2,SBC,S-,English,,,N,,,,,
+The Third and Fourth Book of Ayres,1617,Thomas Campion,4-6,So sweet is thy discourse,campion_ayres3-4,,2,SBC,S-,English,,,N,,,,,
+The Third and Fourth Book of Ayres,1617,Thomas Campion,4-7,There is a Garden in her face,campion_ayres3-4,,2,SBC,S-,English,,,N,,,,,
+The Third and Fourth Book of Ayres,1617,Thomas Campion,4-8,To his sweet Lute,campion_ayres3-4,,2,SBC,S-,English,,,N,,,,,
+The Third and Fourth Book of Ayres,1617,Thomas Campion,4-9,Young and simple though I am,campion_ayres3-4,38_young_and_simple,2,SBC,S-,English,SB,Y,N,,,,,
+The Third and Fourth Book of Ayres,1617,Thomas Campion,4-10,Love me or not,campion_ayres3-4,,2,SBC,S-,English,,,N,,,,,
+The Third and Fourth Book of Ayres,1617,Thomas Campion,4-11,What meanes this folly?,campion_ayres3-4,,2,SBC,S-,English,,,N,,,,,
+The Third and Fourth Book of Ayres,1617,Thomas Campion,4-12,Deare if I with guile,campion_ayres3-4,41_deare,2,SBC,S-,English,SB,Y,N,,,,,
+The Third and Fourth Book of Ayres,1617,Thomas Campion,4-13,O Love where are thy shafts?,campion_ayres3-4,,2,SBC,S-,English,,,N,,,,,
+The Third and Fourth Book of Ayres,1617,Thomas Campion,4-14,Beauty is but a painted hell,campion_ayres3-4,,2,SBC,S-,English,,,N,,,,,
+The Third and Fourth Book of Ayres,1617,Thomas Campion,4-15,Are you what your?,campion_ayres3-4,,2,SBC,S-,English,,,N,,,,,
+The Third and Fourth Book of Ayres,1617,Thomas Campion,4-16,"Since shee, even shee",campion_ayres3-4,,2,SBC,S-,English,,,N,,,,,
+The Third and Fourth Book of Ayres,1617,Thomas Campion,4-17,I must complaine,campion_ayres3-4,,2,SBC,S-,English,,,N,,,,,
+The Third and Fourth Book of Ayres,1617,Thomas Campion,4-18,Thinkest thos to seduce,campion_ayres3-4,,2,SBC,S-,English,,,N,,,,,
+The Third and Fourth Book of Ayres,1617,Thomas Campion,4-19,Her fayre inflaming eyes,campion_ayres3-4,,2,SBC,S-,English,,,N,,,,,
+The Third and Fourth Book of Ayres,1617,Thomas Campion,4-20,Turne all thy thoughts,campion_ayres3-4,,2,SBC,S-,English,,,N,,,,,
+The Third and Fourth Book of Ayres,1617,Thomas Campion,4-21,If any hath the heart to kill,campion_ayres3-4,,2,SBC,S-,English,,,N,,,,,
+The Third and Fourth Book of Ayres,1617,Thomas Campion,4-22,Beauty since you,campion_ayres3-4,,2,SBC,S-,English,,,N,,,,,
+The Third and Fourth Book of Ayres,1617,Thomas Campion,4-23,Your fayre lookers,campion_ayres3-4,,2,SBC,S-,English,,,N,,,,,
+The Third and Fourth Book of Ayres,1617,Thomas Campion,4-24,Faine would I wed,campion_ayres3-4,,2,SBC,S-,English,,,N,,,,,

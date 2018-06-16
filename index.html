@@ -3,10 +3,10 @@ title: Songs
 layout: default
 ---
 <div class="top-content">
-    <div class="ui container">
-        <form class="ui form" method="get" id="search_form" role="search">
-            <div class="inline fields">
-                <div class="four wide field">
+    <div class="ui  container">
+        <form class="ui unstackable custom form" method="get" id="search_form" role="search">
+            <div class="three fields">
+                <div class="three wide field">
                     <select id="search_field" class="ui fluid dropdown">
                         <option value="q" selected>All fields</option>
                         {% for field in site.data.fields %}
@@ -14,17 +14,17 @@ layout: default
                         {% endfor %}
                     </select>
                 </div>
-                <div class="ten wide field">
-                    <input type="text" id="search_text" placeholder="enter search text here">
-                </div>
-                <div class="two wide field">
+                <div class=" two wide field">
                     <select id="search_type" class="ui fluid dropdown">
                         <option value="or" selected>OR</option>
                         <option value="and">AND</option>
                         <option value="not">NOT</option>
                     </select>
                 </div>
-                <button class="ui icon button" type="submit">
+                <div class="primary eleven wide field">
+                    <input type="text" id="search_text" placeholder="enter search text here">
+                </div>
+                <button class="ui icon button" type="submit" title="add new filter">
                     <i class="plus icon"></i>
                 </button>
             </div>

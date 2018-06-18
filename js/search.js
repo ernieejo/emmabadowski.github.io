@@ -5,6 +5,10 @@
 //place for storing global data
 const global = {};
 
+const getTableData = function(node){
+    return node.getElementsByClassName(['data'])[0].innerHTML;
+};
+
 $(document).ready(function(){
 
 // Get the generated search_data.json file so lunr.js can search it locally.
@@ -15,7 +19,6 @@ $(document).ready(function(){
 
 //Semantic UI interactive elements
     $('.ui.accordion').accordion();
-    $('table').tablesort();
 
 // Build lunr index when data has loaded
     global.data.then(function(loaded_data){
@@ -125,7 +128,7 @@ function display_search_results(results, loaded_data) {
             for (let i in window.store){
                 const key = window.store[i]['value'];
                 const label = window.store[i]['label'];
-                row += `<td><span class="mobile only"><strong>${label}: </strong></span>${item[key]}${get_pdf_link(key, item, global.filemap)}</td>`;
+                row += `<td><span class="mobile only"><strong>${label}:</strong></span><span class="data">${item[key]}</span>${get_pdf_link(key, item, global.filemap)}</td>`;
             }
             row += '</tr>';
             // Add the row to the collection of results.
@@ -136,6 +139,20 @@ function display_search_results(results, loaded_data) {
         // If there are no results, let the user know.
         $search_window.html('<p><strong>No search results found</strong></p>');
     }
+    //once table is generated, allow sorting
+    $('table').tablesorter(
+        {
+            cssAsc: "ascending",
+            cssDesc: "descending",
+            sortList: [[0,0],[3,0]],
+            sortAppend: [[0,0],[3,0]],
+            textExtraction: getTableData,
+            widgets: ["columns"],
+            widgetOptions: {
+                columns: ['sorted', 'secondary']
+            }
+        }
+    );
 }
 
 function generate_param_labels(params, uniqueFields){

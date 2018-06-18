@@ -20,14 +20,14 @@ $(document).ready(function(){
 // Build lunr index when data has loaded
     global.data.then(function(loaded_data){
         global.idx = lunr(function(){
-            this.ref('path');
+            this.ref('id');
             const here = this;
             for (let i in window.store){
                 //index all fields, so that a search for all fields will still make an attempt to match;
                 here.field(window.store[i]['value']);
             }
             $.each(loaded_data, function(index, value){
-                here.add($.extend({"path":index},value));
+                here.add($.extend({"id":index},value));
             });
         });
         //after loading index, execute search based on query params

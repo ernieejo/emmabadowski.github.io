@@ -147,6 +147,7 @@ function display_search_results(results, loaded_data) {
             sortList: [[0,0],[3,0]],
             sortAppend: [[0,0],[3,0]],
             textExtraction: getTableData,
+            headerTemplate: '',
             widgets: ["columns"],
             widgetOptions: {
                 columns: ['sorted', 'secondary']

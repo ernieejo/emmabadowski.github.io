@@ -151,6 +151,13 @@ function display_search_results(results, loaded_data) {
             widgets: ["columns"],
             widgetOptions: {
                 columns: ['sorted', 'secondary']
+            },
+            headers: {
+                0: {
+                    sorter: 'ignoreArticles',
+                    ignoreArticles: ['en', 'fr', 'it'],
+                    ignoreArticlesExcept: ''
+                }
             }
         }
     );

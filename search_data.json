@@ -4,7 +4,7 @@
 {% assign songs = site.data.songs | where: "done","Y" | sort: "year" %}
 {
 {% for song in songs %}
-{% assign id = song.book_path | append:'_' | append: song.song_no | downcase | replace: ' ','_' | escape %}
+{% assign id = song.book_title | append:'_' | append: song.song_no | downcase | replace: ' ','_' | escape %}
  "{{id}}" : {
   "book_title" : "{{song.book_title}}",
   "editor" : "{{song.editor}}",

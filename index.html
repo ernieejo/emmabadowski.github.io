@@ -7,6 +7,7 @@ layout: default
         <form class="ui unstackable custom form" method="get" id="search_form" role="search">
             <div class="three fields">
                 <div class="three wide field">
+                    <label for="search_field">Field(s) to search</label>
                     <select id="search_field" class="ui fluid dropdown">
                         <option value="q" selected>All fields</option>
                         {% for field in site.data.fields %}
@@ -15,6 +16,7 @@ layout: default
                     </select>
                 </div>
                 <div class=" two wide field">
+                    <label for="search_type">Operator</label>
                     <select id="search_type" class="ui fluid dropdown">
                         <option value="or" selected>OR</option>
                         <option value="and">AND</option>
@@ -22,11 +24,14 @@ layout: default
                     </select>
                 </div>
                 <div class="primary eleven wide field">
-                    <input type="text" id="search_text" placeholder="enter search text here">
+                    <label for="search_text">Enter search text here</label>
+                    <div class="ui action input">
+                        <input type="text" id="search_text">
+                        <button class="ui icon button" type="submit" title="add new filter">
+                            <i class="plus icon"></i>
+                        </button>
+                    </div>
                 </div>
-                <button class="ui icon button" type="submit" title="add new filter">
-                    <i class="plus icon"></i>
-                </button>
             </div>
         </form>
     </div>

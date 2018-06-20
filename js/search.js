@@ -120,6 +120,7 @@ function display_search_results(results, loaded_data) {
     // Are there any results?
     if (results.length) {
         const $search_results = $("#search_results");
+        $search_results.empty();  //remove spinner
         // Iterate over the results, building a table row for each one
         for (const result of results) {
             const item = loaded_data[result];

@@ -16,7 +16,7 @@
 
 - value: song_no
   label: "Song #"
-  type: sym
+  type: num
   sort: float
 
 - value: song_title

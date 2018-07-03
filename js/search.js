@@ -50,7 +50,6 @@ $(document).ready(function(){
             //CHANGE THIS replace with a function to use string matching, number matching, or index searching based on field type
             //return a list of all search results.
             const results = execute_query(global.idx, field, params, loaded_data);
-            console.log(results);
             results.forEach(function(result){
                 allResults.push(result);
             });
@@ -240,10 +239,11 @@ function execute_query(index, field, params, data){
         //ensure that each match is only being returned once by passing through a Set
         return Array.from(new Set(res));
     } else if (f.type === 'sym') { //perform direct string comparisons
-        const entries = Object.entries(data).map(i => ([i[0], i[1][field]]));
+        const entries = Object.entries(data).map(i => ([i[0], i[1][field].toLowerCase()]));
+        console.log(entries);
         let res = [];
         params.getAll(field).forEach(function(s){
-            res.push(...entries.filter(i=>i[1].includes(s)).map(a => a[0]));
+            res.push(...entries.filter(i=>i[1].includes(s.toLowerCase())).map(a => a[0]));
         });
         return Array.from(new Set(res));
     }

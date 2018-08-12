@@ -2,40 +2,50 @@
 - value: book_title
   label: Book Title
   type: text
+  sort: string-ins
 
 - value: editor
   label: Editor
   type: text
+  sort: string-ins
 
 - value: year
   label: Year
   type: num
+  sort: int
 
 - value: song_no
   label: "Song #"
-  type: sym
+  type: num
+  sort: float
 
 - value: song_title
   label: Song Title
   type: text
+  sort: string-ins
 
 - value: no_parts
   label: "# of Parts"
   type: num
+  sort: int
 
 - value: voices
   label: Voices
   type: sym
+  sort: string-ins
 
 - value: text
   label: Text
   type: sym
+  sort: string-ins
 
 - value: languages
   label: Languages
   type: text
+  sort: string-ins
 
 - value: tags
   label: Tags
   type: text
+  sort: string-ins
 

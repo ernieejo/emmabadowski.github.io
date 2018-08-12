@@ -5,6 +5,10 @@
 //place for storing global data
 const global = {};
 
+const getTableData = function(node){
+    return node.getElementsByClassName(['data'])[0].innerHTML;
+};
+
 $(document).ready(function(){
 
 // Get the generated search_data.json file so lunr.js can search it locally.
@@ -15,19 +19,18 @@ $(document).ready(function(){
 
 //Semantic UI interactive elements
     $('.ui.accordion').accordion();
-    $('table').tablesort();
 
 // Build lunr index when data has loaded
     global.data.then(function(loaded_data){
         global.idx = lunr(function(){
-            this.ref('path');
+            this.ref('id');
             const here = this;
             for (let i in window.store){
                 //index all fields, so that a search for all fields will still make an attempt to match;
                 here.field(window.store[i]['value']);
             }
             $.each(loaded_data, function(index, value){
-                here.add($.extend({"path":index},value));
+                here.add($.extend({"id":index},value));
             });
         });
         //after loading index, execute search based on query params
@@ -117,6 +120,7 @@ function display_search_results(results, loaded_data) {
     // Are there any results?
     if (results.length) {
         const $search_results = $("#search_results");
+        $search_results.empty();  //remove spinner
         // Iterate over the results, building a table row for each one
         for (const result of results) {
             const item = loaded_data[result];
@@ -125,7 +129,7 @@ function display_search_results(results, loaded_data) {
             for (let i in window.store){
                 const key = window.store[i]['value'];
                 const label = window.store[i]['label'];
-                row += `<td><span class="mobile only"><strong>${label}: </strong></span>${item[key]}${get_pdf_link(key, item, global.filemap)}</td>`;
+                row += `<td><span class="mobile only"><strong>${label}:</strong></span><span class="data">${item[key]}</span>${get_pdf_link(key, item, global.filemap)}</td>`;
             }
             row += '</tr>';
             // Add the row to the collection of results.
@@ -136,6 +140,28 @@ function display_search_results(results, loaded_data) {
         // If there are no results, let the user know.
         $search_window.html('<p><strong>No search results found</strong></p>');
     }
+    //once table is generated, allow sorting
+    $('table').tablesorter(
+        {
+            cssAsc: "ascending",
+            cssDesc: "descending",
+            sortList: [[0,0],[3,0]],
+            sortAppend: [[0,0],[3,0]],
+            textExtraction: getTableData,
+            headerTemplate: '',
+            widgets: ["columns"],
+            widgetOptions: {
+                columns: ['sorted', 'secondary']
+            },
+            headers: {
+                0: {
+                    sorter: 'ignoreArticles',
+                    ignoreArticles: ['en', 'fr', 'it'],
+                    ignoreArticlesExcept: ''
+                }
+            }
+        }
+    );
 }
 
 function generate_param_labels(params, uniqueFields){
@@ -188,7 +214,8 @@ function execute_query(index, field, params, data){
             }
         }
         query = query.join(' ');
-        return index.search(query).map(a => a.ref); //return array of matching results
+        //ensure each match is only being returned once by passing through a Set
+        return Array.from(new Set(index.search(query).map(a => a.ref))); //return array of matching results
     } else if (f.type === 'num') { //perform number range search
         const entries = Object.entries(data).map(i => ([i[0], i[1][field]]));
         let res = [];
@@ -209,14 +236,16 @@ function execute_query(index, field, params, data){
                 res.push (...entries.filter(i => i[1] === n).map(a => a[0]));
             }
         });
-        return res;
+        //ensure that each match is only being returned once by passing through a Set
+        return Array.from(new Set(res));
     } else if (f.type === 'sym') { //perform direct string comparisons
-        const entries = Object.entries(data).map(i => ([i[0], i[1][field]]));
+        const entries = Object.entries(data).map(i => ([i[0], i[1][field].toLowerCase()]));
+        console.log(entries);
         let res = [];
         params.getAll(field).forEach(function(s){
-            res.push(...entries.filter(i=>i[1].includes(s)).map(a => a[0]));
+            res.push(...entries.filter(i=>i[1].includes(s.toLowerCase())).map(a => a[0]));
         });
-        return res;
+        return Array.from(new Set(res));
     }
 
 }

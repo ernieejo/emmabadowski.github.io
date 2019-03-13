@@ -1,6 +1,6 @@
 
-- value: book_title
-  label: Book Title
+- value: band
+  label: Band
   type: text
   sort: string-ins
 

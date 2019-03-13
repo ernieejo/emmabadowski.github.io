@@ -19,11 +19,16 @@
   type: text
   sort: string-ins
 
+- value: genre_2
+  label: Genre 2
+  type: text
+  sort: string-ins
+
 - value: genre_3
   label: Genre 3
   type: text
   sort: string-ins
-
+  
 - value: genre_4
   label: Genre 4
   type: text

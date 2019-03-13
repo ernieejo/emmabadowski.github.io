@@ -1,51 +1,32 @@
 
 - value: band
-  label: Band
+  label: "Band"
   type: text
   sort: string-ins
 
-- value: editor
-  label: Editor
+- value: album
+  label: "Album"
   type: text
   sort: string-ins
 
 - value: year
-  label: Year
+  label: "Year"
   type: num
   sort: int
 
-- value: song_no
-  label: "Song #"
-  type: num
-  sort: float
-
-- value: song_title
-  label: Song Title
+- value: genre_1
+  label: Genre 1
   type: text
   sort: string-ins
 
-- value: no_parts
-  label: "# of Parts"
-  type: num
-  sort: int
-
-- value: voices
-  label: Voices
-  type: sym
-  sort: string-ins
-
-- value: text
-  label: Text
-  type: sym
-  sort: string-ins
-
-- value: languages
-  label: Languages
+- value: genre_3
+  label: Genre 3
   type: text
   sort: string-ins
 
-- value: tags
-  label: Tags
+- value: genre_4
+  label: Genre 4
   type: text
   sort: string-ins
+
 

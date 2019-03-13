@@ -1,6 +1,6 @@
-# emmabadowski.github.io
+# ernieejo.github.io/vinyl/
 
-This is a github pages site for displaying music transcriptions by Emma Badowski.
+This is a github pages site for indexing Matty B's vinyl collection
 
 Site built by Matthew Barry (revanar) using Jekyll.
 
